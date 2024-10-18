@@ -1,6 +1,6 @@
 const express=require('express');
 const app=express()
-const http=require("https");
+const http=require("http");
 const cors=require('cors');
 
 const {Server} =require("socket.io");
@@ -21,7 +21,8 @@ io.on("connection",(socket)=>{
     console.log(`User Connected: ${socket.id}`);
 
     socket.on("disconnect",() =>{
-     console.log("User Disconnect",socket.id);
+        console.log(`User Disconnected: ${socket.id}`);
+
     })
 });
 
